@@ -18,6 +18,18 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    /* Puntos animados */
+    .dot-1::after, .dot-2::after, .dot-3::after {
+      content: ".";
+      animation: blink 1.5s infinite;
+    }
+    .dot-2::after { animation-delay: 0.3s; }
+    .dot-3::after { animation-delay: 0.6s; }
+    @keyframes blink {
+      0%, 20% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
 <body class="bg-[#0a0a0a] text-white min-h-screen flex flex-col">
@@ -28,7 +40,7 @@
       <input
         id="buscar"
         type="text"
-        placeholder="Buscar..."
+        placeholder="Que vamos a buscar ahora"
         class="w-full bg-[#1a1a1a] text-white placeholder-[#bfbfbf] rounded-md px-4 py-3 text-base focus:outline-none"
         oninput="filtrar()"
         autofocus
@@ -36,561 +48,146 @@
     </div>
   </header>
 
+  <!-- Estado de búsqueda -->
+  <div id="estadoBusqueda" class="text-center text-sm text-[#bbbbbb] mt-6 hidden"></div>
+
   <!-- Resultados -->
-  <main class="flex-1 px-4 py-6 max-w-7xl mx-auto">
-    <ul id="busquedas" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 hidden">
+   <main class="flex-1 px-4 py-6 max-w-7xl mx-auto">
+    <ul id="busquedas" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+      
+<!--ABAJO AGREGAR NUEVO CONTENIDO -->
 
-     
-                    <!-- Kick Buttowski: Medio Doble de Riesgo -->
-<li>
-        <a href="go:lz3" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//xhPpCLky3gmLlAjAs8gf15h6Bxg.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Kick Buttowski: Medio Doble de Riesgo 2010
-</span>
-		     <span class="hidden">La historia se centra en Clarence Francis Buttowski, un acróbata que prefiere que lo llamen por el nombre de «Kick» Buttowski. Le gusta mucho la acción, el peligro y las cosas asombrosas y con su mejor amigo Gunther tratan de hacer lo más increíble.</span>
-        </a>
-      </li>
-      <!--FINAL-->
-
-					<!--¡Quieren volverme loco! 2005-->
-<li>
-        <a href="go:21" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//1um1GWa8AguAVmNioGfz0WCptVQ.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">¡Quieren volverme loco! 2005 quieren volverme loco quieres volverme loco</span>
-          <span class="hidden">Nick es un seductor que intenta conseguir una cita con la joven y atractiva divorciada Suzanne. El problema es que Suzanne está atrapada trabajando en Vancouver, y además es infeliz porque está perdiendo a sus hijos. Nick ve la oportunidad de conquistarla, y se ofrece galantemente a hacer realidad los deseos de Suzanne –y los suyos al mismo tiempo– trayendo desde Portland, Oregon, a Kevin, de siete años, y a Lindsey, de once, para que se reúnan con su mamá. Lo que Nick no sabe es que los hijos de Suzanne piensan que ningún hombre es lo bastante bueno para su madre y que harán todo lo posible para convertir el viaje en una pesadilla.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-	   
-					<!--Cenicienta 2021-->
-<li>
-        <a href="go:46" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//oU0JRNrzpEWSH2pXzSiiNL76KSq.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Cenicienta 2021 la cenicienta la cinderella </span>
-          <span class="hidden">Cenicienta es un musical moderno, con un lado atrevido, del clásico cuento de hadas. La ambiciosa protagonista (Camila Cabello) tiene sueños y con la ayuda de su fabulosa Hada Madrina, persevera para cumplirlos.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-	  
-					<!--El jardinero 2025-->
-<li>
-        <a href="go:47" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//sVuYUl7EtBxyJTOl4Ao7eZVjKDb.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">El jardinero 2025</span>
-          <span class="hidden">Serge guarda un secreto de Estado. Él, su familia y el jardinero Leo aparecen en una lista negra del gobierno. Intentan idear un plan para seguir con vida.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-
-					<!--Culpa Mía: Londres 2025-->
-<li>
-        <a href="go:48" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//q0HxfkF9eoa6wSVnzwMhuDSK7ba.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Culpa Mía: Londres 2025 culpa mia londres culpa mia london culpa tuya </span>
-          <span class="hidden">Noah, de 18 años, se muda de Estados Unidos a Londres con su madre y William, un empresario británico adinerado. Noah conoce al hijo de William, un chico malo llamado Nick, y crece entre ellos una atracción innegable. Mientras Noah se adapta a su nueva vida y se enamora por primera vez, su devastador pasado la alcanzará.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-                    <!-- El Eternauta -->
-<li>
-        <a href="go:34" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//9Krv5NvKa5a3Q3b1l2B3rP9Bj8E.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">El Eternauta 2025
-</span>
-		     <span class="hidden">Después de una nevada mortal que acaba con gran parte de la población, Juan Salvo y un grupo de sobrevivientes en Buenos Aires deben resistir a una amenaza de otro planeta.</span>
-        </a>
-      </li>
-      <!--FINAL-->
-
-					<!--Violet y Finch 2020-->
-<li>
-        <a href="go:35" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//cYtAU7GtSEoBD9EuS311RCNTb6K.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Violet y Finch 2020</span>
-          <span class="hidden">Violet y Theodore son dos amigos cuyo encuentro cambia sus vidas para siempre. Mientras luchan por dejar atrás las cicatrices de su pasado, descubren que incluso los momentos más insignificantes pueden tener una importancia crucial en sus vidas.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--iRehén 2025-->
-<li>
-        <a href="go:36" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//xduStDf3yiIL6WDIuhIdLX5rRGv.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">iRehén 2025 rehen ¡rehen ihostage ¡hostage hostage</span>
-          <span class="hidden">Los policías de Ámsterdam enfrentan un difícil desafío cuando un hombre armado entra en una Apple Store del centro de la ciudad. Inspirada en hechos reales.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Sangre y oro 2023-->
-<li>
-        <a href="go:37" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//6Tdu098zuhY4AGG5CHYJZRIu5yO.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Sangre y oro 2023</span>
-          <span class="hidden">Al final de la Segunda Guerra Mundial, un soldado alemán busca a su hija mientras una tropa de las SS busca un tesoro judío.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La rosa de Versalles 2025-->
-<li>
-        <a href="go:38" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//As2UKY4gNYS4w2U2ViGUdzTI472.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La rosa de Versalles 2025</span>
-          <span class="hidden">En la época de la revolución, dos mujeres —María Antonieta y su protectora Oscar François de Jarjayes— cumplen sus distintos roles y enfrentan difíciles decisiones.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Novata Espacial 2024-->
-<li>
-        <a href="go:44" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//oYx9AVIrZaVZ2PezSZvOOjtB75a.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Novata Espacial 2024</span>
-          <span class="hidden">Tiffany "Rex" Simpson (Emma Roberts) siempre soñó con ir al espacio, y con su aplicación "retocada" consigue un lugar en el supercompetitivo programa de entrenamiento de astronautas de la NASA. En aprietos, ¿podrá esta chica de Florida recurrir a su astucia, agallas y determinación para terminar el entrenamiento y viajar al espacio antes de que se descubra su secreto?</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-	   
-                    <!-- Undone -->
-<li>
-        <a href="go:45" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//ucUhydbM7DEHDhFPV3KhKRxJ51l.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Undone 2019
-</span>
-		     <span class="hidden">Alma es una joven de 28 años que vive en San Antonio (Texas). Después de estar a punto de morir tras sufrir un accidente de coche, Alma descubre que su forma de percibir el tiempo no es la misma de antes. Con el propósito de descubrir la verdad sobre la muerte de su padre, decide desarrollar su nueva habilidad.</span>
-        </a>
-      </li>
-      <!--FINAL-->
-
-
-					<!--El extraño mundo de Jack 1993-->
-<li>
-        <a href="go:22" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//pqFPpQ77VZ0moRgRRsxx7p39CS3.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">El extraño mundo de Jack 1993 pesadillas antes de navidad pesadilla antes de navidad</span>
-          <span class="hidden">Cansado de asustar a los humanos cada 31 de octubre con la misma vieja bolsa de trucos, Jack Skellington, el rey de Halloween Town, secuestra a Santa Claus y planea entregar cabezas encogidas y otros regalos macabros a los niños en la mañana de Navidad. Pero a medida que la Navidad se acerca, la novia de Jack, Sally, intenta frustrar sus planes equivocados.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Soul 2020-->
-<li>
-        <a href="go:23" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//xJ7MCAy4oCLerPo3JjnB8lKOhl4.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Soul 2020</span>
-          <span class="hidden">La historia de Joe Gardner, quien desea convertirse en un músico de jazz reconocido, pero termina abandonando este sueño para convertirse en maestro. Después de ser atropellado, llega a un lugar misterioso donde aprende el significado de la vida.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Una niñera a prueba de balas 2005-->
-<li>
-        <a href="go:24" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//s4Z4hf8L0P1fvGoQpfCFjP5oLid.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Una niñera a prueba de balas 2005 Un canguro superduro</span>
-          <span class="hidden">El deshonrado SEAL de la Armada Shane Wolfe recibe una nueva tarea: proteger a los cinco niños Plummer de los enemigos de su padre recientemente fallecido, un científico del gobierno cuyo experimento de alto secreto permanece oculto en la casa de los niños.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Interestelar 2014-->
-<li>
-        <a href="go:39" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/original/cQuuBjG78j4b2r1dFpAjnjbUplv.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Interestelar 2014 interstellars</span>
-          <span class="hidden">Narra las aventuras de un grupo de exploradores que hacen uso de un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un viaje interestelar.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--El Lobo de Wall Street 2013-->
-<li>
-        <a href="go:40" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//uthRoUeTtiep5HCoySlOjQSPCbJ.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">El Lobo de Wall Street 2013</span>
-          <span class="hidden">Película basada en hechos reales del corredor de bolsa neoyorquino Jordan Belfort (Leonardo DiCaprio). A mediados de los años 80, Belfort era un joven honrado que perseguía el sueño americano, pero pronto en la agencia de valores aprendió que lo más importante no era hacer ganar a sus clientes, sino ser ambicioso y ganar una buena comisión. Su enorme éxito y fortuna le valió el apodo de “El lobo de Wall Street”. Dinero, poder, mujeres, drogas. Las tentaciones abundaban y el temor a la ley era irrelevante. Jordan y su manada de lobos consideraban que la discreción era una cualidad anticuada; nunca se conformaban con lo que tenían.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La telaraña de Charlotte 2006-->
-<li>
-        <a href="go:41" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//zI6O0Bf3BB3eSxp04Lkz0ficrvm.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La telaraña de Charlotte 2006</span>
-          <span class="hidden">Wilbur es un cerdo de granja al que le aterra la idea de acabar en la mesa. Su amiga Charlotte, una encantadora araña, acude a su rescate.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-	  
-					<!--Bob Esponja: La película 2004-->
-<li>
-        <a href="go:42" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//CtISczftMz6g7kyk5uLxBben8b.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Bob Esponja: La película 2004 </span>
-          <span class="hidden">La corona del Rey Neptuno ha desaparecido y las sospechas recaen en el Sr. Krabs. Junto a Patrick, su mejor amigo, Bob Esponja marcha a la peligrosa Ciudad de Shell para rescatar la corona de Neptuno y salvar al Sr. Krabs.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Historia de honor 2022-->
-<li>
-        <a href="go:43" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//dBYfbtWzmeKhQnlXdEzaPKwX9ii.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden"> devotion devocion una Historia de honor 2022</span>
-          <span class="hidden">La historia real de dos jóvenes pilotos que son aceptados en un escuadrón de élite para su entrenamiento durante la Guerra de Corea. Tom y Jesse serán llevados al límite para convertirse en los mejores pilotos de combate mientras formarán una firme amistad; la cual será puesta a prueba en el acalorado campo de batalla.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-
-					<!--Blanca Nieves y los siete enanos 1938-->
-<li>
-        <a href="go:25" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//b2ZPP3bZqDOzqTHr1TlFIFPWP48.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Blanca Nieves y los siete enanos 1938 blancanieves</span>
-          <span class="hidden">La historia de una joven princesa que es perseguida por su malvada madrastra. Con la ayuda de siete enanos amigables, Blancanieves vive una aventura mágica llena de valentía, amistad y el poder del amor verdadero para vencer a la oscuridad y encontrar su final feliz.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Blanca Nieves 2025-->
-<li>
-        <a href="go:26" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//sm91FNDF6OOKU4hT9BDW6EMoyDB.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Blanca Nieves 2025 blancanieves</span>
-          <span class="hidden">Una adaptación en vivo del clásico cuento de hadas sobre una hermosa joven princesa que, mientras es acosada por una reina celosa, busca refugio en la casa de siete enanos en la campiña alemana.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Atlantis: El imperio perdido 2001-->
-<li>
-        <a href="go:27" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//uR7AKWMDTwyAub5r4QoPPiJImvx.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Atlantis: El imperio perdido 2001</span>
-          <span class="hidden">El equipo más altamente calificado del mundo de arqueólogos y de exploradores es conducido por el historiador Milo Thatch mientras que abordan el submarino increíble Ulysses de 1.000 pies y cabeza profundamente en los misterios del mar.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Cuentos que no son cuentos 2008-->
-<li>
-        <a href="go:28" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//5iq64cFqv2CCevuxlVIJjdvIAa5.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Cuentos que no son cuentos 2008 más allá de los sueños mas alla de los sueños mas haya de los sueños mas aya de los sueños</span>
-          <span class="hidden">La vida de Skeeter (Adam Sandler) va a cambiar para siempre cuando las historias que les cuenta a sus sobrinos antes de dormir se convierten misteriosamente en realidad al día siguiente. Cuando se da cuenta de lo que sucede, Skeeter decide contar historias fabulosas en las que todo sale bien con el fin de ayudar económicamente a su familia, pero las aportaciones de sus sobrinos a las historias acaban chafando completamente el resultado.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Primera cita de Riley 2015-->
-<li>
-        <a href="go:16" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//wD4ccmFDoREmqAHmzwOjNuYsylv.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Primera cita de Riley 2015 intensamente intensa mente inside out del reves </span>
-          <span class="hidden">Riley, ahora de 12 años, está colgando en casa con sus padres en San Francisco cuando el problema potencial viene golpeando: un muchacho aparece en la puerta.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Monsters, Inc. 2001-->
-<li>
-        <a href="go:19" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//g3SgHEb5ej2MioGfYLrZVshF909.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Monsters, Inc. 2001</span>
-          <span class="hidden">Para alimentar la ciudad, los monstruos tienen que asustar a los niños para que griten. Sin embargo, los niños son tóxicos para los monstruos, y después de que un niño pasa, dos monstruos se dan cuenta de que las cosas pueden no ser lo que ellos piensan.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-	  
-					<!--Monsters University 2013-->
-<li>
-        <a href="go:20" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//fDwaVE6Ab1WGnzNEV4Irrtmbdsm.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Monsters University 2013</span>
-          <span class="hidden">Una mirada a la relación entre Mike Wazowski y James P. «Sully» Sullivan durante sus días en Monsters University, cuando no eran necesariamente los mejores amigos.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Thunderbolts* 2025-->
-<li>
-        <a href="go:30" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//cGOBis1KNC8AkYMcOEw4lCycfD1.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Thunderbolts* 2025 tunderbolts</span>
-          <span class="hidden">Después de que Yelena Belova, Fantasma, Taskmaster y U.S. Agent se vean arrinconados en una trampa mortal tendida por Valentina Allegra de Fontaine, estos rechazados desilusionados, uniendo fuerzas junto con el Guardián Rojo y Bucky, deben embarcarse en una peligrosa misión que los obligará a enfrentar los rincones más oscuros de sus pasados.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Destino final lazos de sangre 2025-->
-<li>
-        <a href="go:29" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//frNkbclQpexf3aUzZrnixF3t5Hw.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Destino final 6 lazos de sangre 2025</span>
-          <span class="hidden">Atragantada por una violenta pesadilla recurrente, la estudiante universitaria Stefanie regresa a casa para encontrar a la única persona que podría romper el ciclo y salvar a su familia de la horrible muerte que inevitablemente les espera a todos.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Misión: Imposible - La sentencia final 2025-->
-<li>
-        <a href="go:31" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//haOjJGUV00dKlZaJWgjM1UD1cJV.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Misión: Imposible - La sentencia final 2025</span>
-          <span class="hidden">La Entidad, la IA experimental que se ha convertido en el villano de la historia, sigue activa y cuenta con el apoyo del malvado Gabriel en el mundo de los cárnicos. Por suerte, Ethan y su equipo tienen la llave que les podría dar el control de la Entidad, algo que les obligará a arriesgarse para eliminar a esa IA que descansa en el fondo del mar.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Extraterritorial 2025-->
-<li>
-        <a href="go:32" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/original/7tWkxxiqraVx1IzYd4DHv6FIvhS.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Extraterritorial 2025</span>
-          <span class="hidden">Cuando su hijo desaparece dentro de un consulado de EE. UU., la exsoldado de las fuerzas especiales Sara hace todo lo posible para encontrarlo... y destapa una oscura conspiración.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Una película de Minecraft 2025-->
-<li>
-        <a href="go:33" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//rZYYmjgyF5UP1AVsvhzzDOFLCwG.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Una película de Minecraft 2025</span>
-          <span class="hidden">Henry, Natalie, Dawn y Garrett, cuatro inadaptados, son arrastrados a un misterioso portal hacia el extraño y cúbico mundo principal. Para volver a casa, tendrán que dominar este mundo con la ayuda de un artesano inesperado y experto llamado, Steve, mientras se embarcan en una búsqueda mágica.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-
-					<!--Intensa-Mente 2015-->
-<li>
-        <a href="go:17" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//sG3bHZWCMOZwhUq71WbPG9Vrrwc.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Intensa-Mente 2015 intensamente del reves inside out</span>
-          <span class="hidden">Riley es una chica que disfruta o padece toda clase de sentimientos. Aunque su vida ha estado marcada por la Alegría, también se ve afectada por otro tipo de emociones. Lo que Riley no entiende muy bien es por qué motivo tiene que existir la Tristeza en su vida. Una serie de acontecimientos hacen que Alegría y Tristeza se mezclen en una peligrosa aventura que dará un vuelco al mundo de Riley.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-		<!--IntensaMente 2 2024-->
-<li>
-        <a href="go:18" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//lE3DCRI7bQgHSiIuEPcFiXpiuGV.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">IntensaMente 2 2024 del reves intensa mente dos</span>
-          <span class="hidden">Riley, ahora adolescente, enfrenta una reforma en la Central de sus emociones. Alegría, Tristeza, Ira, Miedo y Asco deben adaptarse a la llegada de nuevas emociones: Ansiedad, Vergüenza, Envidia y Ennui.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Aladdin 1992-->
-<li>
-        <a href="go:12" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//5ALwczKzFxbsiMDlHuy7aREDCzr.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Aladdin 1992</span>
-          <span class="hidden">Un niño de la calle de buen corazón y un Gran Visir hambriento de poder compiten por una lámpara mágica que tiene el poder de hacer realidad sus deseos más profundos.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Aladdín: El regreso de Jafar 1994-->
-<li>
-        <a href="go:13" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//dpnjhDsWimMUOMsuz2AVsqeU9vL.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Aladdín 2: El regreso de Jafar 1994 </span>
-          <span class="hidden">Aladin y Jazmin viven felices en el palacio real, rodeados de lujos y de la magia del genio. Pero, muy lejos de allí, algo se remueve en las arenas del desierto: Yago, el loro dentudo de Jafar, ha logrado escapar de la lámpara que los mantenía presos a ambos. Tras traicionar a su amo, Yago decide vivir una nueva vida en donde él es el jefe. Pero Jafar esconde más de un as en la manga...</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Aladdín y el rey de los ladrones 1996-->
-<li>
-        <a href="go:14" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//8hNo4sagsaO6ZnZO52QKX7Ggco6.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Aladdín y el rey de los ladrones 1996</span>
-          <span class="hidden">Por fin Aladdin se va a casar con la princesa Jasmine. A pesar de la presencia y ánimo de sus amigos Genio, Alfombra y el mono Abú, está algo preocupado: tiene miedo porque no sabe qué tipo de padre va a ser, si él nunca tuvo ninguno. Pero todas sus preocupaciones quedarán de lado cuando 40 ladrones irrumpen en la boda para robar un mágico talismán.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Aladdín 2019-->
-<li>
-        <a href="go:15" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//trnyoKkkvvjZvRvCMrNDtSf25nH.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Aladdín 2019</span>
-          <span class="hidden">Aladdin es un adorable pero desafortunado ladronzuelo enamorado de la hija del Sultán, la princesa Jasmine. Para intentar conquistarla, acepta el desafío de Jafar, que consiste en entrar a una cueva en mitad del desierto para dar con una lámpara mágica que le concederá todos sus deseos. Allí es donde Aladdín conocerá al Genio, dando inicio a una aventura como nunca antes había imaginado.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--Coraline y la puerta secreta 2009-->
-<li>
-        <a href="go:lz1" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/original/8TbLvuKSDNbAriBAJx2RZlUGNvo.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">Coraline y la puerta secreta 2009</span>
-          <span class="hidden">Una aventurera niña de 11 años encuentra otro mundo que es una versión extrañamente idealizada de su frustrante hogar, pero que tiene siniestros secretos.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-                    <!-- La Pantera Rosa (1969) -->
-<li>
-        <a href="go:lz2" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/24FUVY6UEyxkrrNBj7eSkNfceRX.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Pantera Rosa (1969)</span>
-<span class="hidden">La Pantera Rosa es el nombre de un personaje de ficción, relacionado con la película de igual título, de 1963. En la película original de 1963 titulada La Pantera Rosa, de Blake Edwards, el título aludía a un diamante de ese color.</span>
-        </a>
-      </li>
-      <!--FINAL-->
-
-					<!--La Sirenita 1989-->
-<li>
-        <a href="go:lz5" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//Vc0KvO7z2OzEbRs6nyZs9xD81s.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Sirenita 1989</span>
-          <span class="hidden">Una sirena princesa hace un trato fáustico en un intento de convertirse en humana y ganar el amor de un príncipe.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La Sirenita 2: Regreso al Mar 2000-->
-<li>
-        <a href="go:lz6" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//1m6JsSmBa4X1Kp35YW3QPbMpByF.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Sirenita 2: Regreso al Mar 2000</span>
-          <span class="hidden">Después de que Morgana, la hermana de Úrsula, intentase secuestrar a Melody, Eric y Ariel deciden aislar completamente a su hija del mar y del pasado de su madre construyendo un gigantesco muro alrededor del castillo. A los 12 años, Melody encuentra su regalo de bautizo y lo abre, un hermoso medallón que provoca que Morgana la localice y seduzca a la niña con la idea de ser una sirena para siempre. Pero la oferta tiene una condición, Melody debe robar el tridente del Rey Tritón, el cual es su abuelo aunque ella no lo sabe. Mientras ella emprende su misión acompañada por un pingüino y una morsa, todo el mar se pone patas arriba intentado encontrar a la hija de Ariel.
- Otra de las numerosas secuelas de los grandes clásicos de Disney que estuvo nominada a varios premios gracias a su banda sonora.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La Sirenita 3: Los comienzos de Ariel 2008-->
-<li>
-        <a href="go:lz7" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//yFWP8BSOVC8tQ3NI34gfvEhUqZl.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Sirenita 3: Los comienzos de Ariel 2008</span>
-          <span class="hidden">Mucho antes de conocer al príncipe Eric y poner los pies en la tierra, Ariel era una de las siete hijas queridas del poderoso rey Tritón. Pero los tiempos estaban cambiando en el reino submarino, y la música estaba prohibida. En esta aventura, Ariel, sus hermanas y sus amigos los leales Sebastián y Flounder, se esfuerzan por devolver la música y la amistad al reino de Atlántica.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La sirenita 2023-->
-<li>
-        <a href="go:lz8" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//mdszPVnIY7cWgbgJ8zbwu1PiU5V.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La sirenita 2023</span>
-          <span class="hidden">Ariel, la más joven de las hijas del rey Tritón y la más desafiante, anhela saber más sobre el mundo más allá del mar y, mientras visita la superficie, se enamora del apuesto príncipe Eric. Con las sirenas prohibidas para interactuar con los humanos, Ariel hace un trato con la malvada bruja del mar, Ursula, que le da la oportunidad de experimentar la vida en la tierra, pero finalmente pone en peligro su vida y la corona de su padre.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La cenicienta 1950-->
-<li>
-        <a href="go:lz9" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//vqzeSm5Agvio7DahhKXaySUbUUW.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La cenicienta 1950</span>
-          <span class="hidden">Cuando la cruel madrastra de Cenicienta le impide asistir al Baile Real, recibe ayuda inesperada de los adorables ratones Gus y Jaq, y de su Hada Madrina.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La Cenicienta 2: Un sueño hecho realidad 2002-->
-<li>
-        <a href="go:lz10" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//eUoQl8Bhd4s5woTc35lHFijhLcW.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Cenicienta 2: Un sueño hecho realidad 2002</span>
-          <span class="hidden">Como princesa recién coronada, Cenicienta aprende rápidamente que la vida en el Palacio, y sus responsabilidades reales, son más desafiantes de lo que se había imaginado. En tres conmovedores cuentos, Cenicienta llama a sus amigos animales y a su Hada Madrina para que la ayuden a llevar su propia gracia y encanto a su papel real y descubra que ser fiel a sí misma es la mejor manera de hacer realidad sus sueños.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-					<!--La Cenicienta 3: Un giro en el tiempo 2007-->
-<li>
-        <a href="go:lz11" tabindex="0" class="block outline-none focus:ring-2 ring-yellow-400 rounded">
-          <img src="https://image.tmdb.org/t/p/w500//hnu7CGMc1zQejwjUIEGcSikdhmV.jpg" alt="poster" class="w-full aspect-[2/3] rounded-lg object-cover mb-2 sm:mb-0">
-          <span class="hidden">La Cenicienta 3: Un giro en el tiempo 2007</span>
-          <span class="hidden">La madrastra de Cenicienta se apodera de la varita mágica del Hada Madrina para viajar atrás en el tiempo y lograr cambiar el curso de los acontecimientos mediante un maléfico hechizo.</span>
-        </a>
-      </li>
-	  <!--FINAL-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
     </ul>
+
+    
+    <div class="text-center mt-6">
+      <button id="verMasBtn" onclick="mostrarTodo()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded hidden">
+        Ver mas series
+      </button>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="bg-[#121212] text-[#999999] text-center py-6 text-sm">
     <div class="mb-2 space-x-4">
       <a href="#" class="hover:text-white">Privacidad</a>
-      <a href="#" class="hover:text-white">Términos de Uso</a>
+      <a href="#" class="hover:text-white">terminos de Uso</a>
       <a href="#" class="hover:text-white">DMCA</a>
     </div>
-    <div>
-      © 2025. Todos los derechos reservados. <strong>LzPlay!</strong> se usa bajo licencia.
-    </div>
+    <div>2025. Todos los derechos reservados. <strong>LzPlay!</strong> se usa bajo licencia.</div>
   </footer>
 
-  <!-- Script de filtro -->
+  <!-- Script de filtrado y funciones -->
   <script>
-     function filtrar() {
+    let mostrandoTodo = false;
+
+    function ordenarYLimitar() {
+      const ul = document.getElementById("busquedas");
+      const li = Array.from(ul.querySelectorAll("li"));
+
+      li.sort((a, b) => new Date(b.getAttribute("data-fecha")) - new Date(a.getAttribute("data-fecha")));
+
+      li.forEach(el => ul.removeChild(el));
+
+      const visibles = li.slice(0, 30);
+      visibles.forEach(el => {
+        el.style.display = "";
+        ul.appendChild(el);
+      });
+
+      const ocultos = li.slice(30);
+      ocultos.forEach(el => {
+        el.style.display = "none";
+        ul.appendChild(el);
+      });
+
+      // Mostrar botÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ³n si hay mÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¡s de 30
+      document.getElementById("verMasBtn").classList.toggle("hidden", li.length <= 30);
+    }
+
+    function mostrarTodo() {
+      const ul = document.getElementById("busquedas");
+      const li = ul.querySelectorAll("li");
+      li.forEach(el => el.style.display = "");
+      document.getElementById("verMasBtn").classList.add("hidden");
+      mostrandoTodo = true;
+    }
+
+    function filtrar() {
       const input = document.getElementById("buscar");
       const filter = input.value.trim().toUpperCase();
       const ul = document.getElementById("busquedas");
       const li = ul.getElementsByTagName("li");
+      const estado = document.getElementById("estadoBusqueda");
 
-      let hayCoincidencias = false;
+      estado.classList.remove("hidden");
+      estado.innerHTML = `Buscando<span class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span>`;
 
-      if (filter === "") {
-        ul.style.display = "none";
-        return;
-      }
-
-      for (let i = 0; i < li.length; i++) {
-        const a = li[i].getElementsByTagName("a")[0];
-        const txtValue = a.textContent || a.innerText;
-
-        if (txtValue.toUpperCase().includes(filter)) {
-          li[i].style.display = "";
-          li[i].classList.add("fade-in");
-          hayCoincidencias = true;
-        } else {
-          li[i].style.display = "none";
-          li[i].classList.remove("fade-in");
-        }
-      }
-
-      ul.style.display = hayCoincidencias ? "grid" : "none";
-    }
-  </script>
-
-  <!-- Autoenfoque con teclado en móviles -->
-  <script>
-    window.addEventListener("load", () => {
-      const input = document.getElementById("buscar");
-      input.focus();
       setTimeout(() => {
+        let hayCoincidencias = false;
+
+        for (let i = 0; i < li.length; i++) {
+          const a = li[i].getElementsByTagName("a")[0];
+          const txtValue = a.textContent || a.innerText;
+
+          if (filter && txtValue.toUpperCase().includes(filter)) {
+            li[i].style.display = "";
+            li[i].classList.add("fade-in");
+            hayCoincidencias = true;
+          } else if (filter) {
+            li[i].style.display = "none";
+            li[i].classList.remove("fade-in");
+          } else {
+            li[i].style.display = mostrandoTodo ? "" : "none";
+          }
+        }
+
+        if (filter === "") {
+          estado.classList.add("hidden");
+          mostrandoTodo = false;
+          ordenarYLimitar();
+        } else if (!hayCoincidencias) {
+          estado.innerHTML = `No se encontraron resultados`;
+        } else {
+          estado.classList.add("hidden");
+        }
+
+        ul.style.display = hayCoincidencias || filter === "" ? "grid" : "none";
+      }, 500);
+    }
+
+    window.addEventListener("load", () => {
+      document.getElementById("buscar").focus();
+      setTimeout(() => {
+        const input = document.getElementById("buscar");
         input.focus();
         input.setSelectionRange(input.value.length, input.value.length);
       }, 200);
+      ordenarYLimitar();
     });
-  </script>
+	document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = document.body.innerHTML
+    .replace(/Ã¡/g, "á")
+    .replace(/Ã©/g, "é")
+    .replace(/Ã­/g, "í")
+    .replace(/Ã³/g, "ó")
+    .replace(/Ãº/g, "ú")
+    .replace(/Ã±/g, "ñ")
+    .replace(/Ã/g, "Á")
+    .replace(/Ã‰/g, "É")
+    .replace(/Ã/g, "Í")
+    .replace(/Ã“/g, "Ó")
+    .replace(/Ãš/g, "Ú")
+    .replace(/Ã‘/g, "Ñ")
+    .replace(/â/g, "’")
+    .replace(/â/g, "–")
+    .replace(/â/g, "“")
+    .replace(/â/g, "”")
+    .replace(/â¦/g, "…")
+    .replace(/Â/g, "");
+});
   </script>
 
 </body>
